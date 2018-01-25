@@ -4,14 +4,18 @@ import crypt
 def test(username,insalt,password):
 	
 	fdict = open(dictionary_file,'r')
-	for word in fdict.readlines():
-		word=word.strip('\n')
-		maybe = crypt.crypt(word,insalt)
-		if maybe == password :
-			print('[+],' + username + ',' + word + '\n')
-			fresult.write('[+],' + username + ',' + word + '\n')
-			return
-	print('[-] '+username)
+	try:
+		for word in fdict.readlines():
+			word=word.strip('\n')
+			maybe = crypt.crypt(word,insalt)
+			if maybe == password :
+				print('[+],' + username + ',' + word + '\n')
+				fresult.write('[+],' + username + ',' + word + '\n')
+				return
+		print('[-] '+username)
+	except Exception as e:
+		print('the following problem was encountered:\n'+str(e))
+		exit()
 	
 
 def main():
