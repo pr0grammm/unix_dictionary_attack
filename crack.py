@@ -3,7 +3,7 @@ import crypt
 
 def test(username,insalt,password):
 	
-	fdict = open(dictionary_file,'r')
+	fdict = open(dictionary_file,'r',errors='ignore')
 	try:
 		for word in fdict.readlines():
 			word=word.strip('\n')
