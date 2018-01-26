@@ -14,6 +14,7 @@ def test(username,insalt,password):
 				fresult.write('[+],' + username + ',' + word + '\n')
 				return
 		print('[-] '+username)
+		fdict.close()
 	except Exception as e:
 		print('the following problem was encountered:\n'+str(e))
 		exit()
@@ -38,9 +39,11 @@ def main():
 			print('trying user ' +username)
 			test(username,insalt,password)
 	print('finished! '+str(datetime.datetime.now()))
+	fshadow.close()
 
 shadow_file = sys.argv[1]
 dictionary_file = sys.argv[2]
 fresult = open('result.csv','w')
 
 main()
+fresult.close()
