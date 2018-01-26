@@ -1,4 +1,5 @@
 import sys
+import datetime
 import crypt
 
 def test(username,insalt,password):
@@ -20,6 +21,7 @@ def test(username,insalt,password):
 
 def main():
 	
+	print('program has started on '+str(datetime.datetime.now()))
 	fshadow = open(shadow_file,'r')
 	for line in fshadow.readlines():
 		if line.split(':')[1] not in ['','*','!','!!']:
@@ -33,8 +35,9 @@ def main():
 			salt = password.split('$')[2]
 			#get insalt
 			insalt = '$' + ctype + '$' + salt +'$'
-			
+			print('trying user ' +username)
 			test(username,insalt,password)
+	print('finished! '+str(datetime.datetime.now()))
 
 shadow_file = sys.argv[1]
 dictionary_file = sys.argv[2]
