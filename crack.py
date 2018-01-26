@@ -25,7 +25,7 @@ def main():
 	print('program has started on '+str(datetime.datetime.now()))
 	fshadow = open(shadow_file,'r')
 	for line in fshadow.readlines():
-		if line.split(':')[1] not in ['','*','!','!!']:
+		if line.split(':')[1].startswith('$'):
 			#get username
 			username = line.split(':')[0]
 			#get password
