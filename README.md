@@ -1,5 +1,6 @@
 # unix_dictionary_attack
-Unix dictionary attack to crack MD5 and SHA512 hashes.     
+Unix dictionary attack to crack MD5 and SHA512 hashes.
+The tool can only crack passwords formed by characters in the UTF-8 character list.
 The script scans a shadow file and cracks unix passwords by comparing the passwords 
 to hashes of words in a user-provided wordlist. 
 
